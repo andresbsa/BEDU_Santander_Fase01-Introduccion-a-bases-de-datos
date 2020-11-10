@@ -1,0 +1,35 @@
+#Usando la base de datos sample_mflix, agrega proyeccciones, filtros, ordenamientos y límites que permitan contestar las siguientes preguntas.
+#1 ¿Qué comentarios ha hecho Greg Powell?
+filter={
+    'name': 'Greg Powell'
+}
+
+#2 ¿Qué comentarios han hecho Greg Powell o Mercedes Tyler?
+filter={
+    '$or': [
+        {
+            'name': 'Greg Powell'
+        }, {
+            'name': 'Mercedes Tyler'
+        }
+    ]
+}
+
+#3 ¿Cuál es el máximo número de comentarios en una película?
+project={
+    'num_mflix_comments': 1
+}
+sort=list({
+    'num_mflix_comments': -1
+}.items())
+limit=1
+
+#4 ¿Cuál es título de las cinco películas más comentadas?
+project={
+    'title': 1, 
+    'num_mflix_comments': 1
+}
+sort=list({
+    'num_mflix_comments': -1
+}.items())
+limit=5
