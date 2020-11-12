@@ -1,0 +1,22 @@
+#Usando la base de datos sample_airbnblistingsAndReviews, realiza los siguientes filtros:
+
+#Propiedades que no permitan fiestas.
+filter = {
+          house_rules: /no part[iy]/i
+         }
+
+#Propiedades que admitan mascotas.
+filter = {
+          house_rules: /pets allowed/i 
+         }
+#Esto más bien filtra a las propiedades que mencionen la admisión de mascotas (puede que sí, puede que no).
+
+#Propiedades que no permitan fumadores.
+filter = {
+          house_rules: /no smok[ie]/i 
+         }
+
+#Propiedades que no permitan fiestas ni fumadores.
+filter = {
+          house_rules: /no part[iy]|no smok[ie]/i 
+         }
