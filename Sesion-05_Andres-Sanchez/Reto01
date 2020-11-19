@@ -18,5 +18,12 @@ filter = {
 
 #Propiedades que no permitan fiestas ni fumadores.
 filter = {
-          house_rules: /no part[iy]|no smok[ie]/i 
+          $and: [
+           {
+            house_rules: /no part[iy]/i 
+           },
+           {
+            house_rules: /no smok[ie]/i
+           }
+          ]
          }
