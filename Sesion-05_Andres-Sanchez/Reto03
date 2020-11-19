@@ -3,7 +3,7 @@ Usando la colección sample_airbnb.listingsAndReviews, mediante el uso de agrega
 */
 
 [{$match: {
-  amenities: {$in: ['Ethernet', 'Wifi']}
+  amenities: {$in: [/Ethernet/, 'Wifi']}
 }}, 
  {$group: {
   _id: null,
@@ -12,10 +12,14 @@ Usando la colección sample_airbnb.listingsAndReviews, mediante el uso de agrega
   }
 }}]
 
+/* 
+Otra solución es con $count.
+*/
+
 [{
     $match: {
         amenities: {
-            $in: ['Ethernet', 'Wifi']
+            $in: [/Ethernet/, 'Wifi']
         }
     }
 }, 
