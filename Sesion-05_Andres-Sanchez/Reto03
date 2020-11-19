@@ -1,0 +1,24 @@
+/*
+Usando la colección sample_airbnb.listingsAndReviews, mediante el uso de agregaciones, encontrar el número de publicaciones que tienen conexión a Internet, sea desde Wifi o desde cable (Ethernet).
+*/
+
+[{$match: {
+  amenities: {$in: ['Ethernet', 'Wifi']}
+}}, 
+ {$group: {
+  _id: null,
+  listings_internet: {
+    $sum: 1
+  }
+}}]
+
+[{
+    $match: {
+        amenities: {
+            $in: ['Ethernet', 'Wifi']
+        }
+    }
+}, 
+ {
+    $count: 'listings_internet'
+}]
