@@ -1,0 +1,28 @@
+CREATE DATABASE bedu_test;
+DROP DATABASE bedu_test;
+# IF (NOT) EXISTS para no repetir
+
+USE bedu_test;
+
+CREATE TABLE users (
+	id INT PRIMARY KEY,
+  genero CHAR(1),
+  edad INT,
+	ocup INT,
+  cp VARCHAR(20)
+);
+
+CREATE TABLE movies (
+	id INT PRIMARY KEY,
+  title VARCHAR(80),
+  genre VARCHAR(80)
+);
+
+CREATE TABLE ratings (
+	user_id INT,
+  movie_id INT,
+  rating INT,
+  timest BIGINT,
+	FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (movie_id) REFERENCES movies(id)
+);
